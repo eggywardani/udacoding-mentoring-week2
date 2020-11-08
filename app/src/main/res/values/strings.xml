@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">My Task 2</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="username_login">eggywardani</string>
+    <string name="pass_login">eggy123</string>
+
+</resources>
