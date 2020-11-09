@@ -13,27 +13,17 @@ class AgeCounterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_age_counter)
 
-
-
-
         btn_hitung.setOnClickListener {
 
             val tahunSekarang = Calendar.getInstance().get(Calendar.YEAR)
-            val tahunLahir = edt_tahun_lahir.text.toString().trim()
+            val tahunLahir = edt_tahun_lahir.text.toString().toInt()
 
-
-            when {
-                tahunLahir.isEmpty() -> {
-                    edt_tahun_lahir.error = "Tahun Lahir Wajib diisi"
-                }
-                tahunLahir.toInt() <= tahunSekarang -> {
-                    val umur = tahunSekarang - tahunLahir.toInt()
-                    tv_umur.text = umur.toString()
-                }
-                else -> Toasty.error(this, "Tahun Tidak Valid", Toast.LENGTH_SHORT).show()
+            val umur = tahunSekarang.toInt() - tahunLahir.toInt()
+            if (tahunLahir <= tahunSekarang){
+                tv_umur.text = umur.toString()
+            } else{
+                Toasty.error(this, "Tahun Tidak Valid", Toast.LENGTH_SHORT, false).show()
             }
-
-
 
         }
     }
