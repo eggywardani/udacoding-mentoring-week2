@@ -24,15 +24,18 @@
             android:text="Tahun Lahir"
             android:textSize="18sp" />
 
-        <EditText
-            android:id="@+id/edt_lahir"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_edittext"
-            android:fontFamily="@font/quicksand"
-            android:hint="masukkan tahun lahir"
-            android:inputType="number"
-            android:padding="10dp" />
+            android:hint="Tahun Lahir">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_tahun_lahir"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:background="@drawable/bg_edittext" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/btn_hitung"

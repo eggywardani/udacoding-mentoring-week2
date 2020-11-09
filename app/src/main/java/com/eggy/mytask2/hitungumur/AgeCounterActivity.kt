@@ -1,8 +1,8 @@
 package com.eggy.mytask2.hitungumur
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.eggy.mytask2.R
 import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.activity_age_counter.*
@@ -19,13 +19,24 @@ class AgeCounterActivity : AppCompatActivity() {
         btn_hitung.setOnClickListener {
 
             val tahunSekarang = Calendar.getInstance().get(Calendar.YEAR)
-            val tahunLahir = edt_lahir.text.toString().toInt()
-            val umur = tahunSekarang - tahunLahir
-            if (tahunLahir <= tahunSekarang){
-                tv_umur.text = umur.toString()
-            } else{
-                Toasty.error(this, "Tahun Tidak Valid", Toast.LENGTH_SHORT, false).show()
+            val tahunLahir = edt_tahun_lahir.text.toString().trim()
+
+
+            when {
+                tahunLahir.isEmpty() -> {
+                    edt_tahun_lahir.error = "Tahun Lahir Wajib diisi"
+                }
+                tahunLahir.toInt() <= tahunSekarang -> {
+                    val umur = tahunSekarang - tahunLahir.toInt()
+                    tv_umur.text = umur.toString()
+                }
+                else -> Toasty.error(this, "Tahun Tidak Valid", Toast.LENGTH_SHORT).show()
             }
+
+
+
         }
     }
+
+
 }
